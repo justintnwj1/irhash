@@ -1,0 +1,139 @@
+.hero {
+    background-color: #2a4365;
+    /* Warna biru gelap, bukan navy */
+    color: white;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 10%;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 600px;
+    z-index: 2; /* Memastikan konten di atas latar belakang */
+    position: relative; /* Agar animasi dapat diterapkan dengan benar */
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.5s;
+}
+
+.hero-content span {
+    color: var(--teal);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--light-slate);
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.7s;
+}
+
+.hero-content .cta-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    border-radius: 4px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: var(--transition);
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.9s;
+}
+
+.hero-content .cta-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+}
+
+.lightning {
+    width: 240px;
+    height: 560px;
+    background-color: #f1c40f;
+    clip-path: polygon(50% 0%, 65% 50%, 100% 50%, 50% 100%, 35% 50%, 0% 50%);
+    transform: rotate(45deg);
+    animation: flash 2s infinite, float 10s ease-in-out infinite;
+    opacity: 0.3;
+}
+.lightning1 {
+    width: 240px;
+    height: 560px;
+    background-color: #0077B6;
+    clip-path: polygon(50% 0%, 65% 50%, 100% 50%, 50% 100%, 35% 50%, 0% 50%);
+    transform: rotate(45deg);
+    opacity: 0.3;
+    animation: lightningAnimation 2s ease-out forwards;
+    position: absolute;
+}
+.asde {
+    width: auto;
+    height: 80vh;
+    object-fit: contain;
+    opacity: 1;
+}
+
+/* Modal Overlay */
+.modal-overlay-projects1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.modal-overlay-projects1.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+@keyframes lightningAnimation {
+    0% {
+        top: -100%;
+        opacity: 0;
+    }
+    50% {
+        top: 50%;
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .lightning {
+        display: none;
+    }
+}

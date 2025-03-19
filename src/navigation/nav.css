@@ -1,0 +1,153 @@
+/* HEADER */
+header {
+    background-color: var(--navy);
+    color: var(--light-slate);
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 95% 100%, 5% 100%, 0 70%);
+    transition: var(--transition);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--teal);
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo .fa-bolt {
+    opacity: 0;
+    /* Ikon dimulai dengan tidak terlihat */
+    transition: opacity 0.3s ease;
+    /* Menambahkan transisi untuk opacity */
+    margin-left: 5px;
+    /* Memberikan jarak antara teks dan ikon */
+}
+
+.logo:hover .fa-bolt {
+    opacity: 1;
+    /* Ikon akan muncul saat hover */
+}
+
+nav ul .nav-links-li {
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul .nav-links-li li {
+    margin-left: 30px;
+}
+
+.nav-links-li a {
+    text-decoration: none;
+}
+
+.nav-links-li .linkActive {
+    color: var(--teal);
+}
+
+nav ul .nav-links-li li {
+    color: var(--light-slate);
+    position: relative;
+    padding: 10px 0;
+    transition: var(--transition);
+}
+
+nav ul .nav-links-li li:hover {
+    color: var(--teal);
+}
+
+nav ul .nav-links-li li:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--teal);
+    transition: var(--transition);
+}
+
+nav ul .nav-links-li li:hover:before {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-slate);
+    margin: 5px;
+    transition: var(--transition);
+}
+
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 0 30px;
+        position: fixed;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    nav {
+        right: 0;
+        top: 0;
+        background-color: var(--navy);
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        padding-top: 70px;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        box-shadow: -10px 0px 30px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    nav.active {
+        transform: translateX(0);
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 10;
+    }
+
+    .hamburger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active .line2 {
+        opacity: 0;
+    }
+
+    .hamburger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}

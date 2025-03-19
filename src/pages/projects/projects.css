@@ -1,0 +1,313 @@
+.projects {
+    min-height: 100vh;
+    background-color: #e9ecef;
+    padding: 100px 10%;
+}
+
+.projects-content {
+    display: flex;
+    width: 100%;
+    padding: 20px 70px;
+    gap: 100px;
+    justify-content: center;
+}
+
+.multimeter {
+    width: 240px;
+    height: 420px;
+    background-color: #243B55;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 6px solid #FF8F17;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 15px;
+    position: relative;
+}
+
+.display {
+    width: 100%;
+    height: 85px;
+    background-color: #B3D9EA;
+    border-radius: 4px;
+    border: 2px white solid;
+    box-sizing: border-box;
+    font-family: 'Digital', 'Courier New', monospace;
+    font-size: 0.75rem;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 6px;
+}
+
+.display-value {
+    width: 100%;
+    height: 45px;
+    word-wrap: break-word; /* Memastikan teks terpecah jika terlalu panjang */
+    white-space: normal; 
+}
+
+.display-pt {
+    width: 100%;
+    height: 40px;
+}
+
+.buttons {
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+.active {
+    background-color: #000;
+}
+
+.dial {
+    margin: 20px 0;
+    width: 120px;
+    height: 120px;
+    background-color: #FF8F17;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 4px solid #CA7417;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.parent-dial {
+    position: absolute;
+    z-index: 10;
+    top: 38.6%;
+}
+
+.dial-ornamen1 {
+    width: 40px;
+    height: 80px;
+    /* Setengah dari diameter */
+    background-color: #CA7417;
+    border-radius: 150px 0 50px 100px;
+}
+
+.dial-ornamen2 {
+    width: 40px;
+    height: 80px;
+    /* Setengah dari diameter */
+    background-color: #CA7417;
+    border-radius: 0 150px 100px 50px;
+}
+
+.indicator {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    /* Membuat sisi kiri segitiga */
+    border-right: 5px solid transparent;
+    /* Membuat sisi kanan segitiga */
+    border-bottom: 10px solid #FF3333;
+}
+
+.button {
+    width: 70px;
+    height: 35px;
+    background-color: #FF8F17;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button .fa-power-off {
+    color:#dc3545;
+    transition: color 0.3s ease;
+}
+
+.button.powerOn .fa-power-off {
+    color: #28a745; /* Hijau ketika on */
+  }
+
+.button-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.button-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    font-family: 'Digital', 'Courier New', monospace;
+}
+
+.socket-probe {
+    margin-top: 10px;
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.socket {
+    width: 20px;
+    height: 20px;
+    background-color: #BD0000;
+    border-radius: 50%;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.socket-right {
+    background-color: #333;
+}
+
+.skills-container {
+    opacity: 0;
+    min-width: 300px;
+    max-width: 400px;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.skill-card {
+    background-color: var(--navy);
+    border-radius: 5px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 3px solid var(--teal);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card h3 {
+    color: var(--teal);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.skill-card p {
+    color: var(--slate);
+    font-size: 0.95rem;
+}
+
+.project-desc {
+    opacity: 0; /* Mulai dengan transparansi */
+    transition: opacity 0.3s ease;
+}
+.projectOn {
+    opacity: 1; 
+}
+
+.detailsOff {
+    filter: brightness(50%);
+    pointer-events: none; /* Menonaktifkan interaksi dengan tombol */
+    cursor: not-allowed;
+    color: var(--navy);
+}
+
+.detailsOn {
+    color: var(--teal);
+}
+
+.modal-overlay-projects {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+.project-desc {
+    display: none;
+}
+
+.modal-overlay-projects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.modal-overlay-projects.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-projects {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay-projects.active .modal-projects {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.modal-header-projects {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--light-gray, #f5f5f5);
+}
+
+.modal-title-projects {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--navy, #0d1d35);
+    display: flex;
+    align-items: center;
+}
+
+.modal-title-projects svg {
+    color: var(--teal, #00c6c2);
+    margin-right: 12px;
+}
+
+.close-button-projects {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--light-gray, #f5f5f5);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: var(--dark-gray, #555);
+    transition: all 0.2s ease;
+}
+
+.close-button-projects:hover {
+    background-color: #ff5a5a;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-content-projects {
+    padding: 10px 0;
+}
+}
