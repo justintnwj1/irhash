@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import "./projects.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faXmark, faListCheck, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faListCheck, faPowerOff, faCircleArrowLeft, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const Projects = () => {
   const [selectedNumber, setSelectedNumber] = useState(0);
   const [activeModal, setActiveModal] = useState(null);
   const [onOff, setOnOff] = useState(false);
   const [details, setDetails] = useState(false);
+  const [number, setNumber] = useState(null);
   const totalSegments = 12;
   // Mengecilkan ukuran radius
   const radius = 70; // Ukuran radius dikecilkan dari 120 menjadi 80
@@ -141,11 +142,19 @@ const Projects = () => {
     setActiveModal(true);
   };
 
+  const handleArrowLeft = () => {
+    setSelectedNumber(selectedNumber === 0 ? 11 : selectedNumber - 1);
+  };
+
+  const handleArrowRight = () => {
+    setSelectedNumber(selectedNumber === 11 ? 0 : selectedNumber + 1);
+  };
+
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('modal-overlay')) {
-        closeModal();
+      closeModal();
     }
-};
+  };
 
   // Close modal
   const closeModal = () => {
@@ -179,6 +188,14 @@ const Projects = () => {
             </div>
             <div className={`button button-right ${onOff ? `` : 'detailsOff'}  ${details && onOff ? `detailsOn` : ''}`} onClick={handleDetails}>Details</div>
           </div>
+          <div className='buttonLR'>
+            <div className='buttonArrowLeft' onClick={handleArrowLeft}>
+              <FontAwesomeIcon icon={faCircleArrowLeft} />
+            </div>
+            <div className='buttonArrowRight' onClick={handleArrowRight}>
+              <FontAwesomeIcon icon={faCircleArrowRight} />
+            </div>
+          </div>
           <div className="flex flex-col items-center justify-center parent-dial">
             <div className="w-64 h-54">
               {/* Mengecilkan ukuran SVG dari 300x300 menjadi 200x200 */}
@@ -211,8 +228,8 @@ const Projects = () => {
           </div>
         </div>
         <div className={`project-desc ${details ? `projectOn` : ''}`}>
-          <div class="skills-container">
-            <div class="skill-card">
+          <div className="skills-container">
+            <div className="skill-card">
               {onOff && (
                 <>
                   <h3>Power Systems</h3>

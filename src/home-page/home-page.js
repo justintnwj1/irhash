@@ -1,7 +1,6 @@
 import React from 'react';
 import Navigation from "../navigation/nav";
 import Home from "../pages/home/home";
-import About from "../pages/about/about";
 import Project from "../pages/projects/projects";
 import SkillsCert from "../pages/s_c/s_c";
 import Experience from "../pages/experience/experience";
@@ -14,10 +13,6 @@ function HomePage() {
 
             <section id="home">
                 <Home />
-            </section>
-            
-            <section id="about">
-                <About />
             </section>
 
             <section id="projects">

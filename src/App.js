@@ -34,7 +34,6 @@ function AppContent() {
       <Routes>
         {/* Semua route menampilkan halaman yang sama */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<HomePage />} />
         <Route path="/projects" element={<HomePage />} />
         <Route path="/skills-certificate" element={<HomePage />} />
         <Route path="/experience" element={<HomePage />} />

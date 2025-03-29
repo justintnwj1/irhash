@@ -13,7 +13,7 @@
 }
 
 .multimeter {
-    width: 240px;
+    width: 270px;
     height: 420px;
     background-color: #243B55;
     border-radius: 15px;
@@ -58,7 +58,22 @@
     width: 100%;
 }
 
+.buttonLR {
+    display: flex;
+    font-size: 2rem;
+    justify-content: space-between;
+    color: #FF8F17;
+    position: absolute;
+    width: 100%;
+    padding: 0 15px;
+    top: 59%;
+}
 
+.buttonArrowLeft, .buttonArrowRight {
+    cursor: pointer;
+    position: relative;
+    z-index: 200000;
+}
 
 .active {
     background-color: #000;

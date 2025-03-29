@@ -51,9 +51,7 @@ const Nav = () => {
             setLinkActive('projects');
         } else if (location.pathname === '/skills-certificate') {
             setLinkActive('skills-certificate');
-        } else if (location.pathname === '/about') {
-            setLinkActive('about');
-        } else if (location.pathname === '/experience') {
+        }else if (location.pathname === '/experience') {
             setLinkActive('experience');
         } else if (location.pathname === '/') {
             setLinkActive('home');
