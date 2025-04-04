@@ -1,41 +1,65 @@
 import { useState, useEffect } from 'react';
 import "./home.css";
-import spi from "../../assets/spi.jpg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faEnvelopeSquare, faContactBook } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsappSquare } from '@fortawesome/free-brands-svg-icons';
+
 const Home = () => {
+    const [activeModal, setActiveModal] = useState(false);
 
-    const [activeModal, setActiveModal] = useState(null);
-    const handleDetails = () => {
+    // Open modal with specific company ID
+    const openModal = () => {
         setActiveModal(true);
-
-        // Menghilangkan modal setelah 2 detik
-        setTimeout(() => {
-            setActiveModal(false);
-        }, 2000);
     };
+
+    // Close modal
+    const closeModal = () => {
+        setActiveModal(false);
+    };
+
+    // Close modal when clicking outside
+    const handleOverlayClick = (e) => {
+        if (e.target.classList.contains('modal-overlay-home')) {
+            closeModal();
+        }
+    };
+
     return (
         <div className="hero">
             <div className="hero-content">
                 <h1>Hello, I'm <span>Irhash</span></h1>
-                <p>Electrical engineer with a strong focus on Power system analysis and automation systems. With experiences in both industrial plant and coal mining environments, I bring a proven track record of developing and optimizing electrical systems. Skilled in ETAP, PLC, and Project Management.</p>
-
-                <div class="about-text">
-                    <p>Served as a Laboratory Assistant for 2 years, Complete my bachelor degree in Electrical Engineering with a 3.41 GPA, Served as head of division of research and development for 1 year.</p>
-                    <div class="skills">
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">Adaptability</span>
-                    </div>
-                </div>
-                <a href="#contact" className="cta-button"  onClick={handleDetails}>Hubungi Saya</a>
+                <p>Electrical Engineer</p>
+                <p>Power System, Automation, Project Management</p>
+                <a onClick={openModal} className="cta-button">Hubungi Saya</a>
             </div>
 
             <div className="lightning"></div>
             {activeModal && (
                 <div
-                    className={`modal-overlay-projects1 ${activeModal ? 'active' : ''}`}
+                    className={`modal-overlay-home ${activeModal ? 'active' : ''}`}
+                    onClick={handleOverlayClick}
                 >
-                    <div className="lightning1"></div>
-                    <img src={spi} className='asde' alt= "asd"/>
+                    <div className="modal-home">
+                        <div className="modal-header-home">
+                            <div className="modal-title-home">
+                                <FontAwesomeIcon icon={faContactBook} />
+                                <span>Contact</span>
+                            </div>
+                            <button className="close-button-home" onClick={closeModal}>
+                                <FontAwesomeIcon icon={faXmark} />
+                            </button>
+                        </div>
+                        <div className="modal-content-home">
+                            <div className="modal-ch-home">
+                                <FontAwesomeIcon icon={faEnvelopeSquare} />
+                                <a href="mailto:irhash1@gmail.com">irhash1@gmail.com</a>
+                            </div>
+                            <div className="modal-ch-home">
+                                <FontAwesomeIcon icon={faWhatsappSquare} />
+                                <a href="https://wa.me/628121212121">+62 121212121</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

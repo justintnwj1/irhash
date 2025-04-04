@@ -51,6 +51,7 @@
     opacity: 0;
     animation: fadeInUp 1s forwards;
     animation-delay: 0.9s;
+    cursor: pointer;;
 }
 
 .hero-content .cta-button:hover {
@@ -138,6 +139,124 @@
     visibility: visible;
 }
 
+/* Modal Styles */
+.modal-overlay-home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.modal-overlay-home.active {
+    opacity: 1;
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-home {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay-home.active .modal-home {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.modal-header-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--light-gray, #f5f5f5);
+}
+
+.modal-title-home {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--navy, #0d1d35);
+    display: flex;
+    align-items: center;
+}
+
+.modal-title-home svg {
+    color: var(--navy);
+    margin-right: 12px;
+}
+
+.close-button-home {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--light-gray, #f5f5f5);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: var(--dark-gray, #555);
+    transition: all 0.2s ease;
+}
+
+.close-button-home:hover {
+    background-color: #ff5a5a;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-content-home {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-ch-home {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+}
+
+.modal-ch-home a{
+    text-decoration: none;
+    color: var(--navy);
+}
+
+.modal-ch-home svg {
+    color: var(--navy);
+    margin-right: 12px;
+}
+
+@keyframes slideIna {
+    0% {
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 @keyframes lightningAnimation {
     0% {

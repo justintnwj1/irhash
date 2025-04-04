@@ -7,8 +7,8 @@
 .projects-content {
     display: flex;
     width: 100%;
-    padding: 20px 70px;
-    gap: 100px;
+    padding: 20px 40px;
+    gap: 90px;
     justify-content: center;
 }
 
@@ -215,7 +215,9 @@
 .project-desc {
     opacity: 0; /* Mulai dengan transparansi */
     transition: opacity 0.3s ease;
+    width: 300px;
 }
+
 .projectOn {
     opacity: 1; 
 }
@@ -238,6 +240,10 @@
 @media screen and (max-width: 768px) {
 .project-desc {
     display: none;
+}
+
+.projects-content {
+    padding: 20px 15px;
 }
 
 .modal-overlay-projects {
@@ -325,4 +331,14 @@
 .modal-content-projects {
     padding: 10px 0;
 }
+}
+
+@media screen and (max-width: 920px) {
+    .projects-content {
+        gap: 10px;
+    }
+
+    .project-desc {
+        max-width: 250px;
+    }
 }
