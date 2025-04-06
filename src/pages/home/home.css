@@ -197,7 +197,7 @@
 }
 
 .modal-title-home svg {
-    color: var(--navy);
+    color: var(--teal);
     margin-right: 12px;
 }
 
@@ -243,34 +243,8 @@
 }
 
 .modal-ch-home svg {
-    color: var(--navy);
+    color: var(--teal);
     margin-right: 12px;
-}
-
-@keyframes slideIna {
-    0% {
-        transform: translateX(-10px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes lightningAnimation {
-    0% {
-        top: -100%;
-        opacity: 0;
-    }
-    50% {
-        top: 50%;
-        opacity: 1;
-    }
-    100% {
-        top: 100%;
-        opacity: 0;
-    }
 }
 
 

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import "./home.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faEnvelopeSquare, faContactBook } from '@fortawesome/free-solid-svg-icons';
-import { faWhatsappSquare } from '@fortawesome/free-brands-svg-icons';
+import { faXmark, faEnvelope, faContactBook } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const Home = () => {
     const [activeModal, setActiveModal] = useState(false);
@@ -51,12 +51,12 @@ const Home = () => {
                         </div>
                         <div className="modal-content-home">
                             <div className="modal-ch-home">
-                                <FontAwesomeIcon icon={faEnvelopeSquare} />
-                                <a href="mailto:irhash1@gmail.com">irhash1@gmail.com</a>
+                                <FontAwesomeIcon icon={faEnvelope} />
+                                <a href="mailto:irhashdm@gmail.com">irhashdm@gmail.com</a>
                             </div>
                             <div className="modal-ch-home">
-                                <FontAwesomeIcon icon={faWhatsappSquare} />
-                                <a href="https://wa.me/628121212121">+62 121212121</a>
+                                <FontAwesomeIcon icon={faWhatsapp} />
+                                <a href="https://wa.me/6285899988797">+62 8589-9988-797</a>
                             </div>
                         </div>
                     </div>

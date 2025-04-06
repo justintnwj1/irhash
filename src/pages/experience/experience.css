@@ -204,17 +204,6 @@
     width: 20px;
 }
 
-@keyframes slideIna {
-    0% {
-        transform: translateX(-10px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
 .point-item:nth-child(1) {
     animation-delay: 0.1s;
 }
@@ -231,20 +220,10 @@
     animation-delay: 0.4s;
 }
 
-@keyframes fadeInUpsa {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 @media (max-width: 768px) {
 
     .experience-content {
         grid-template-columns: 1fr;
     }
-}
+  }
