@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import "./home.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faEnvelope, faContactBook } from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import spi from "../../assets/spi.jpg";
 
 const Home = () => {
     const [activeModal, setActiveModal] = useState(false);
@@ -34,6 +35,9 @@ const Home = () => {
             </div>
 
             <div className="lightning"></div>
+            <div className="about-image">
+                    <img src={spi} alt="Profile" />
+            </div>
             {activeModal && (
                 <div
                     className={`modal-overlay-home ${activeModal ? 'active' : ''}`}
@@ -56,7 +60,11 @@ const Home = () => {
                             </div>
                             <div className="modal-ch-home">
                                 <FontAwesomeIcon icon={faWhatsapp} />
-                                <a href="https://wa.me/6285899988797">+62 8589-9988-797</a>
+                                <a href="https://wa.me/6285899988797">+62 858-9998-8797</a>
+                            </div>
+                            <div className="modal-ch-home">
+                                <FontAwesomeIcon icon={faLinkedin} />
+                                <a href="https://www.linkedin.com/in/irhash-milhan">irhash-milhan</a>
                             </div>
                         </div>
                     </div>

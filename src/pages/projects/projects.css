@@ -8,8 +8,8 @@
     display: flex;
     width: 100%;
     padding: 20px 40px;
-    gap: 90px;
     justify-content: center;
+    gap: 20px;
 }
 
 .multimeter {
@@ -72,7 +72,7 @@
 .buttonArrowLeft, .buttonArrowRight {
     cursor: pointer;
     position: relative;
-    z-index: 10;
+    z-index: 12;
 }
 
 .active {
@@ -176,46 +176,88 @@
     background-color: #333;
 }
 
-.skills-container {
-    opacity: 0;
-    min-width: 300px;
-    max-width: 400px;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards;
-}
-
-.skill-card {
-    background-color: var(--navy);
-    border-radius: 5px;
-    padding: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 3px solid var(--teal);
-    position: relative;
-    overflow: hidden;
-}
 
 
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.skill-card h3 {
-    color: var(--teal);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-}
-
-.skill-card p {
-    color: var(--slate);
-    font-size: 0.95rem;
+li.point-item-project {
+    text-decoration:none;
 }
 
 .project-desc {
     opacity: 0; /* Mulai dengan transparansi */
     transition: opacity 0.3s ease;
-    width: 300px;
+    width: 400px;
+}
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Agar konten terdistribusi secara vertikal */
+    padding: 20px;
+    height: 416px;
+    width: 400px;
+    background-color: var(--navy);
+    border-radius: 20px;
+    border-left: 3px var(--teal) solid;
+    color: var(--light-slate);
+}
+
+.project-list-desc {
+    overflow-y: auto; /* Agar daftar projek dapat di-scroll jika panjang */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.point-list-project {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto; /* Scroll pada list item jika diperlukan */
+    max-height: 360px; /* Membatasi tinggi area daftar, sisanya untuk "Documentation" */
+}
+
+.point-item-project {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    padding: 8px;
+    opacity: 1;
+    border-radius: 6px;
+}
+
+span.text-colored {
+    color: var(--light-slate); /* Menetapkan warna teks menjadi putih agar kontras dengan latar belakang navy */
+    margin-left: 10px; /* Memberi jarak antara ikon dan teks */
+}
+
+.documentation-project {
+    color: var(--teal); /* Warna teal untuk tombol "Documentation" */
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: auto;
+    cursor: pointer;
+    text-align: center; /* Membuat teks berada di tengah */
+}
+
+.documentation-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.documentation-images img {
+    object-fit: contain;
+    max-height: 150px; /* Menjaga proporsi gambar */
+    cursor: pointer;
+    width: fit-content;
+}
+
+.documentation-images svg {
+    cursor: pointer;
+    font-size: 24px;
+    align-self: flex-start; /* Menempatkan tombol back di bagian atas */
 }
 
 .projectOn {
@@ -237,13 +279,83 @@
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+.documentation-images svg {
+    color: var(--teal);
+}
+
+.text-colored {
+    color: var(--navy); /* Contoh warna, bisa disesuaikan */
+  }
+
+.modal-overlay-project-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.modal-overlay-project-image.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-project-image {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px) scale(0.95);
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay-project-image.active .modal-project-image img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 960px) {
 .project-desc {
+    opacity: 0; /* Mulai dengan transparansi */
+    transition: opacity 0.3s ease;
+    width: 400px;
     display: none;
 }
 
 .projects-content {
     padding: 20px 15px;
+    justify-content: center;
+}
+
+.project-container {
+    padding: 20px;
+    height: 80vh;
+    width: 90vw;
+    border-left: 0px;
+}
+
+.point-list-project {
+    max-height: 70vh; /* Membatasi tinggi area daftar, sisanya untuk "Documentation" */
+}
+
+.modal-project-image {
+    padding: 10px;
 }
 
 .modal-overlay-projects {
@@ -333,12 +445,10 @@
 }
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (min-width: 1024px) {
     .projects-content {
-        gap: 10px;
+        gap: 60px;
     }
 
-    .project-desc {
-        max-width: 250px;
-    }
+
 }

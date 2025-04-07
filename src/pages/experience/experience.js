@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import "./experience.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb, faXmark,faHandPointRight, faListCheck } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb, faXmark, faHandPointRight, faListCheck } from '@fortawesome/free-solid-svg-icons';
 
 const Experience = () => {
     const [activeModal, setActiveModal] = useState(null);
@@ -28,7 +28,8 @@ const Experience = () => {
         {
             id: 'pertamina',
             name: 'Pertamina',
-            tagline: 'Illuminating Solutions for Tomorrow',
+            tagline: 'Oil and Gas',
+            description: 'Power System Maintenance Intern',
             points: [
                 { icon: faHandPointRight, text: 'Assisted senior engineers in maintenance tasks.' },
                 { icon: faHandPointRight, text: 'Analyze disturbances occurring in the electrical power system and provide new relay protection setting recommendations for improvement.' }
@@ -37,12 +38,16 @@ const Experience = () => {
         {
             id: 'citasys',
             name: 'PT. Cipta Total Solusindo (CITASys)',
-            tagline: 'Illuminating Solutions for Tomorrow',
+            tagline: 'Engineering, Procurement, and Construction (EPC)',
+            description: 'Electrical Engineer',
             points: [
-                { icon: faHandPointRight, text: 'Managed electrical projects, ensured project compliance with industry standards and provided technical support.' },
+                { icon: faHandPointRight, text: 'Managed electrical projects, ensured project meet client expectation.' },
+                { icon: faHandPointRight, text: 'Designed and developed electrical power systems.'},
                 { icon: faHandPointRight, text: 'Conducted ETAP load flow, short circuit, and implementing relay protection and coordination analyses.' },
-                { icon: faHandPointRight, text: 'Performed Factory Acceptance Tests (FAT), Site Acceptance Tests (SAT), and commissioning procedures.' },
-                { icon: faHandPointRight, text: 'Conducted troubleshoot electrical systems, identifying and resolving issues.' }
+                { icon: faHandPointRight, text: 'Designed PLC, HMI and SCADA systems.'},
+                { icon: faHandPointRight, text: 'Performed Factory Acceptance Tests (FAT), Site Acceptance Tests (SAT), and commissioning. • Setting up electrical panels. Such as relay protection module, VSD, Soft starter, Power meter etc.'},
+                { icon: faHandPointRight, text: 'Produced a book of quantity (BOQ). Create detail of construction tool and equipment.'},
+                { icon: faHandPointRight, text: 'Developed and implemented a project schedule.'},
             ]
         }
     ];
@@ -52,8 +57,8 @@ const Experience = () => {
             <div className="experience-title title">My Experience</div>
             <div className='experience-content'>
                 {companies.map((company) => (
-                    <div 
-                        className="logo-container" 
+                    <div
+                        className="logo-container"
                         key={company.id}
                         onClick={() => openModal(company.id)}
                     >
@@ -70,15 +75,16 @@ const Experience = () => {
 
             {/* Modal */}
             {activeModal && (
-                <div 
-                    className={`modal-overlay ${activeModal ? 'active' : ''}`} 
+                <div
+                    className={`modal-overlay ${activeModal ? 'active' : ''}`}
                     onClick={handleOverlayClick}
                 >
                     <div className="modal">
                         <div className="modal-header">
                             <div className="modal-title">
                                 <FontAwesomeIcon icon={faListCheck} />
-                                <span>Description</span>
+                                <span>
+                                    {companies.find(company => company.id === activeModal).description}</span>
                             </div>
                             <button className="close-button" onClick={closeModal}>
                                 <FontAwesomeIcon icon={faXmark} />
