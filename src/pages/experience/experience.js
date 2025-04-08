@@ -30,6 +30,7 @@ const Experience = () => {
             name: 'Pertamina',
             tagline: 'Oil and Gas',
             description: 'Power System Maintenance Intern',
+            year: '2021',
             points: [
                 { icon: faHandPointRight, text: 'Assisted senior engineers in maintenance tasks.' },
                 { icon: faHandPointRight, text: 'Analyze disturbances occurring in the electrical power system and provide new relay protection setting recommendations for improvement.' }
@@ -40,6 +41,7 @@ const Experience = () => {
             name: 'PT. Cipta Total Solusindo (CITASys)',
             tagline: 'Engineering, Procurement, and Construction (EPC)',
             description: 'Electrical Engineer',
+            year: '2022 - Now',
             points: [
                 { icon: faHandPointRight, text: 'Managed electrical projects, ensured project meet client expectation.' },
                 { icon: faHandPointRight, text: 'Designed and developed electrical power systems.'},
@@ -68,6 +70,7 @@ const Experience = () => {
                         <div className="pertamina-style">
                             <div className="company-name">{company.name}</div>
                             <div className="tagline">{company.tagline}</div>
+                            <div className="year">{company.year}</div>
                         </div>
                     </div>
                 ))}

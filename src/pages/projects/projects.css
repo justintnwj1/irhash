@@ -345,13 +345,13 @@ span.text-colored {
 
 .project-container {
     padding: 20px;
-    height: 80vh;
-    width: 90vw;
+    height: 70vh;
+    width: 85vw;
     border-left: 0px;
 }
 
 .point-list-project {
-    max-height: 70vh; /* Membatasi tinggi area daftar, sisanya untuk "Documentation" */
+    max-height: 65vh; /* Membatasi tinggi area daftar, sisanya untuk "Documentation" */
 }
 
 .modal-project-image {

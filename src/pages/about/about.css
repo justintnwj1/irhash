@@ -29,6 +29,7 @@
     transition: transform 0.3s ease;
     position: relative;
     z-index: 2;
+    text-align: justify;
 }
 
 .about-text:hover {
